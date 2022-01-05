@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-
+    skip_before_action :authorize
+    
     def create
         user=User.find_by(user_name:params[:user][:user_name])
         if user && user.authenticate(params[:user][:password])
@@ -14,5 +15,5 @@ class SessionsController < ApplicationController
         session.delete :user_id
         head :no_content
     end
-    
+
 end
