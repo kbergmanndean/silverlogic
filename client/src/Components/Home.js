@@ -3,7 +3,7 @@ function Home() {
         <div>
             <h1>Home</h1>
             <a href="/wall">View Wall</a>
-            <a href="/sign-up">Sign Up/Log In</a>
+            <a href="/log-in-auth">Sign Up/Log In</a>
         </div>
     )
 }

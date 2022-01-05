@@ -6,15 +6,15 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def show
+        usershow=User.find_by(id:params[:id])
+        render json: usershow
+    end
+    
     def create 
         user=User.create(user_params)
         session[:user_id]=user.id
         render json:user, status: :created
-    end
-
-    def show
-        usershow=User.find_by(id:params[:id])
-        render json: usershow
     end
 
     private
