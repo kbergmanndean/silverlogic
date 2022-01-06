@@ -48,7 +48,7 @@ function Login({user, setUser}) {
                 </input>
                 <input type="submit" value="Log In"></input>
             </form>
-            {errors? errors.map(error=><div key={error}>{error}</div>):null}
+            {errors? errors.map(error => <div key={error}>{error}</div>) : null}
         </div>
     )
 }
