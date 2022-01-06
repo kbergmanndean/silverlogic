@@ -27,7 +27,7 @@ function SignUp({user, setUser}) {
 
     return(
         <div>
-            <form>
+            <form onSubmit = {handleSubmit}>
                 <h1>Sign Up</h1>
                 <input
                 type="text" 
