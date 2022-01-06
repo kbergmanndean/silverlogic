@@ -1,9 +1,12 @@
 import {useState} from "react"
+import {useNavigate} from "react-router-dom"
 
-function Login({user, setUser}) {
+function Login() {
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
+
+    const navigate=useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -18,8 +21,9 @@ function Login({user, setUser}) {
         })
         const userData = await res.json();
         if (userData.id) {
-            setUser(userData);
-            console.log(user)
+            localStorage.setItem("user_id", userData.id)
+            localStorage.setItem("username", userData.user_name)
+            navigate("/")
         }else{
             setErrors(userData.errors)
             console.log(errors)

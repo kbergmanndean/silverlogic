@@ -1,9 +1,12 @@
 import {useState} from "react"
+import {useNavigate} from "react-router-dom"
 
-function SignUp({user, setUser}) {
+function SignUp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
+
+    const navigate=useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -17,8 +20,9 @@ function SignUp({user, setUser}) {
             body:JSON.stringify({user})
         }); const userData = await res.json();
         if (userData.id) {
-            setUser(userData)
-            console.log(userData)
+            localStorage.setItem("user_id", userData.id)
+            localStorage.setItem("username", userData.user_name)
+            navigate("/")
         } else {
             console.log(userData.error)
             setErrors(userData.error)
@@ -45,7 +49,6 @@ function SignUp({user, setUser}) {
             </input>
             <input type="submit" value="Sign Up"></input>
             {errors.length > 0 ? errors.map(error => <div>{error}</div>) : null}
-            {user ? <p>Welcome, {user.user_name}</p> : null}
             </form>
         </div>
         

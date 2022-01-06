@@ -2,14 +2,14 @@ import Login from "./Login.js"
 import SignUp from "./SignUp.js"
 import {useState} from "react"
 
-function LoginAuth({user, setUser}) {
+function LoginAuth() {
     const [showLogin, setShowLogin] = useState(true)
 
     return(
        <div>
            {showLogin ? 
                 <div>
-                    <Login user={user} setUser={setUser}/>
+                    <Login/>
                     <br/>
                     <p>Don't have an account? &nbsp;
                         <button onClick={() => setShowLogin(false)}>Sign Up</button>
@@ -17,7 +17,7 @@ function LoginAuth({user, setUser}) {
                </div>
            :
                 <div>
-                    <SignUp setUser={setUser}/>
+                    <SignUp/>
                     <br/>
                     <p>Already have an account? &nbsp;
                         <button onClick={() => setShowLogin(true)}>Log In</button>
