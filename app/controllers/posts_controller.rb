@@ -3,12 +3,12 @@ class PostsController < ApplicationController
     
     def index
         posts=Post.all
-        render json: posts
+        render json: posts, include: [:user]
     end
 
     def create
         new_post=Post.create(post_params)
-        render json: new_post
+        render json: new_post, include: [:user]
     end
 
     private

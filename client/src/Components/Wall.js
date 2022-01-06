@@ -1,7 +1,6 @@
 import {useState} from "react"
 
-function Wall() {
-    const [messages, setMessages] = useState([])
+function Wall({messages, setMessages}) {
     const [messageText, setMessageText] = useState("")
 
     const user_id = localStorage.getItem("user_id")
@@ -39,7 +38,7 @@ function Wall() {
             :null}
             {messages?
             <ul>
-            {messages.map(message=>{return <li key={message.id}><p>{message.text}</p><p>{message.username}</p></li>})}
+            {messages.map(message=>{return <li key={message.id}><p>{message.text}</p><p>({message.user.user_name})</p></li>})}
             </ul>
             :null}
         </div>
