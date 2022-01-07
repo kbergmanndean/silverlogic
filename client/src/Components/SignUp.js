@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom"
 function SignUp() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
     const [errors, setErrors] = useState([])
 
     const navigate=useNavigate();
@@ -12,7 +13,8 @@ function SignUp() {
         e.preventDefault()
         const user = {
             user_name:username,
-            password:password
+            password:password,
+            email:email
         }
         const res = await fetch("http://localhost:3000/users",{
             method:"POST",
@@ -39,6 +41,13 @@ function SignUp() {
                 value={username}
                 name="username"
                 onChange={(e)=>setUsername(e.target.value)}>
+            </input>
+            <input
+                type="text"
+                placeholder="email"
+                value={email}
+                name="email"
+                onChange={(e)=>setEmail(e.target.value)}>
             </input>
             <input
                 type="text"
