@@ -10,8 +10,8 @@ function App() {
   useEffect(()=>{
     async function fetchMessages() {
       const res = await fetch("http://localhost:3000/posts")
-      const messageData = await res.json()
-      setMessages(messageData)
+      const messagesData = await res.json()
+      setMessages(messagesData.reverse())
     }
     fetchMessages();
   },[])

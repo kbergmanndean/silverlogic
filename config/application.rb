@@ -18,5 +18,14 @@ module Silverlogic
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = { 
+      :address  => "testwallapp99@gmail.com",
+      :port => 3000,
+      :user_name  => "testwallapp99",
+      :password => "testing99",
+      :authentication => "plain",
+      :enable_starttls_auto => true
+     }
   end
 end
