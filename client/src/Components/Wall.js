@@ -2,12 +2,12 @@ import {useState} from "react"
 
 function Wall({messages, setMessages}) {
     const [messageText, setMessageText] = useState("")
-    const [user, setUser] = useState(localStorage.getItem("user_id"))
+    const [userId, setUserId] = useState(localStorage.getItem("user_id"))
 
     async function postMessage(e) {
         e.preventDefault();
         const post = {
-            user_id: user,
+            user_id: userId,
             text: messageText
         }
         const res = await fetch("http://localhost:3000/posts",{
@@ -21,25 +21,44 @@ function Wall({messages, setMessages}) {
         setMessageText("")
     }
 
-    function logOut() {
-        async function handleLogOut() {
-            const res = await fetch("http://localhost:3000/logout",{
+    async function handleLogOut() {
+        const res = await fetch("http://localhost:3000/logout",{
             method:"DELETE"
         })
-            if (res.ok) {
-                localStorage.clear()
-                setUser("")
-            }
+        if (res.ok) {
+            localStorage.clear()
+            setUserId("")
         }
-        handleLogOut()
     }
+        
+    async function handleDelete() {
+        const res = await fetch(`http://localhost:3000/users/${userId}`,{
+            method:"DELETE"
+        })
+        if (res.ok) {
+            localStorage.clear()
+            setUserId("")
+        }
+    }
+        
+    async function handleDeletePost(id) {
+        const res = await fetch(`http://localhost:3000/posts/${id}`,{
+            method:"DELETE"
+        })
+        if (res.ok) {
+            setMessages(messages.filter(m=>m.id!=id))
+        }
+    }
+        
+    
 
     return(
         <div>
             <h1>Home</h1>
-            {user ?
+            {userId ?
             <div>
-                <button onClick={logOut}>Log Out</button>
+                <button onClick={handleDelete}>Delete Account</button>
+                <button onClick={handleLogOut}>Log Out</button>
                 <form onSubmit = {postMessage}>
                     <input 
                         type="text"

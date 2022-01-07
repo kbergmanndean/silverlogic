@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        usershow=User.find_by(id:params[:id])
-        render json: usershow
+        user_show=User.find_by(id:params[:id])
+        render json: user_show
     end
     
     def create 
@@ -18,6 +18,12 @@ class UsersController < ApplicationController
             render json:user, status: :created
             WelcomeMailer.welcome_email(user).deliver_now
         end
+    end
+
+    def destroy
+        user_destroy=User.find_by(id:params[:id])
+        user_destroy.destroy
+        head:no_content
     end
 
     private
