@@ -22,10 +22,22 @@ function Wall({messages, setMessages}) {
         setMessageText("")
     }
 
+    async function logOut() {
+        const res = await fetch("http://localhost:3000/logout",{
+            method:"DELETE"
+        })
+        if (res.ok) {
+            localStorage.clear()
+        }
+    }
+
     return(
         <div>
             <h1>Home</h1>
-            <a href="/log-in-auth">Sign Up/Log In</a>
+            {user_id ?
+            <button onClick={logOut}>Log Out</button>
+            : 
+            <a href="/log-in-auth">Sign Up/Log In</a>}
             {user_id?
             <form onSubmit = {postMessage}>
                 <input 
