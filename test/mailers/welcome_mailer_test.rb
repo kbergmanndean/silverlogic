@@ -3,7 +3,7 @@ require "test_helper"
 #test to see if emails go through
 class WelcomeMailerTest < ActionMailer::TestCase
   test "welcome email" do 
-    #set up user as test user I created
+    #set up user as fixture
     user = users(:one)
 
     #set up email using user contents
@@ -20,5 +20,11 @@ class WelcomeMailerTest < ActionMailer::TestCase
     assert_equal "Welcome!", email.subject 
 
     #check contents
+    assert_match user.user_name, email.html_part.body.encoded
+    assert_match user.user_name, email.text_part.body.encoded
+    assert_match user.email, email.html_part.body.encoded
+    assert_match user.email, email.text_part.body.encoded
+    assert_match user.password, email.html_part.body.encoded
+    assert_match user.password, email.text_part.body.encoded
   end
 end

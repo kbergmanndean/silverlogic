@@ -5,8 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-# column: value
-  username: "user1"
+  user_name: "user1"
   email: "abc@gmail.com"
   password: "123"
 two: {}

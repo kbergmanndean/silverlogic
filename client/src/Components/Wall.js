@@ -4,6 +4,7 @@ function Wall({messages, setMessages}) {
     const [messageText, setMessageText] = useState("")
     const [userId, setUserId] = useState(localStorage.getItem("user_id"))
 
+    //function to post message to wall
     async function postMessage(e) {
         e.preventDefault();
         const post = {
@@ -21,6 +22,7 @@ function Wall({messages, setMessages}) {
         setMessageText("")
     }
 
+    //function to log out 
     async function handleLogOut() {
         const res = await fetch("http://localhost:3000/logout",{
             method:"DELETE"
@@ -30,7 +32,8 @@ function Wall({messages, setMessages}) {
             setUserId("")
         }
     }
-        
+    
+    //function to delete account
     async function handleDelete() {
         const res = await fetch(`http://localhost:3000/users/${userId}`,{
             method:"DELETE"
@@ -40,8 +43,9 @@ function Wall({messages, setMessages}) {
             setUserId("")
         }
     }
-        
-    async function handleDeletePost(id) {
+    
+    //function to delete a post from wall
+    async function deletePost(id) {
         const res = await fetch(`http://localhost:3000/posts/${id}`,{
             method:"DELETE"
         })
@@ -50,8 +54,6 @@ function Wall({messages, setMessages}) {
         }
     }
         
-    
-
     return(
         <div>
             <h1>Home</h1>
@@ -66,15 +68,17 @@ function Wall({messages, setMessages}) {
                         value={messageText}
                         onChange={(e)=>setMessageText(e.target.value)}>
                     </input>
+                    <input type="submit">
+                    </input>
                 </form>
             </div>
             : 
             <a href="/log-in-auth">Sign Up/Log In</a>}
-            {messages?
+            {messages.length>0?
             <ul>
-            {messages.map(message=>{return <li key={message.id}><p>{message.text}</p><p>({message.user.user_name})</p></li>})}
+            {messages.map(message=>{return <li key={message.id}><p>{message.text}</p><p>({message.user.user_name})</p><button onClick={()=>deletePost(message.id)}>Delete</button></li>})}
             </ul>
-            :null}
+            :<p>~No Posts Yet~</p>}
         </div>
     )
 }
