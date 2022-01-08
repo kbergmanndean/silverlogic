@@ -7,6 +7,6 @@
 one:
   user_name: "user1"
   email: "abc@gmail.com"
-  password: "123"
+  password_digest: "123"
 two: {}
 # column: value

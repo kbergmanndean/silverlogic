@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         user=User.create(user_params)
         session[:user_id]=user.id
         if user.email
+            #sends email when new user created
             WelcomeMailer.welcome_email(user).deliver_now
             render json:user, status: :created
         end
