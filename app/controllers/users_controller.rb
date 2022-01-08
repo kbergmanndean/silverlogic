@@ -11,12 +11,21 @@ class UsersController < ApplicationController
         render json: user_show
     end
     
+    # def create 
+    #     user=User.create(user_params)
+    #     session[:user_id]=user.id
+    #     if user.email
+    #         render json:user, status: :created
+    #         WelcomeMailer.welcome_email(user).deliver_now
+    #     end
+    # end
+
     def create 
         user=User.create(user_params)
         session[:user_id]=user.id
         if user.email
             render json:user, status: :created
-            WelcomeMailer.welcome_email(user).deliver_now
+            WelcomeMailer.with(user: user).welcome_email.deliver_now
         end
     end
 
