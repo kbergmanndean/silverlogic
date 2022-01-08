@@ -9,6 +9,7 @@ function SignUp() {
 
     const navigate=useNavigate();
 
+    //function to create a new user and log new user in, posts to /users
     async function handleSubmit(e) {
         e.preventDefault()
         const user = {

@@ -5,6 +5,7 @@ import {useState} from "react"
 function LoginAuth() {
     const [showLogin, setShowLogin] = useState(true)
 
+    //shows login or signup page depending on state
     return(
        <div>
            {showLogin ? 

@@ -8,6 +8,7 @@ function Login() {
 
     const navigate=useNavigate();
 
+    //logs in new user by posting to /login
     async function handleSubmit(e) {
         e.preventDefault()
         const user = {

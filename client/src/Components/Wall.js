@@ -3,6 +3,7 @@ import {useState} from "react"
 function Wall({messages, setMessages}) {
     const [messageText, setMessageText] = useState("")
     const [userId, setUserId] = useState(localStorage.getItem("user_id"))
+    const [userName, setUserName] = useState(localStorage.getItem("username"))
 
     //function to post message to wall
     async function postMessage(e) {
@@ -30,6 +31,7 @@ function Wall({messages, setMessages}) {
         if (res.ok) {
             localStorage.clear()
             setUserId("")
+            setUserName("")
         }
     }
     
@@ -41,6 +43,7 @@ function Wall({messages, setMessages}) {
         if (res.ok) {
             localStorage.clear()
             setUserId("")
+            setUserName("")
         }
     }
     
@@ -59,6 +62,7 @@ function Wall({messages, setMessages}) {
             <h1>Home</h1>
             {userId ?
             <div>
+                <p>{userName}</p>
                 <button onClick={handleDelete}>Delete Account</button>
                 <button onClick={handleLogOut}>Log Out</button>
                 <form onSubmit = {postMessage}>
