@@ -9,17 +9,14 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   #test login with @user
   test "login user with valid credentials" do
-    post login_url, params: {user:{user_name:@user.user_name, password: @user.password}}, as: :json
+    post login_path, params: {session:{user:{user_name:@user.user_name, password: @user.password}}}, as: :json
     assert_response :success
   end
 
   #test invalid credential login
   test "shouldn't login user with invalid credentials" do
-    non_existant_username = "username_not_in_db"
-    post login_url, params: {user:{user_name:non_existant_username, password:"123"}}, as: :json
+    post login_path, params: {session:{user:{user_name:@user.user_name, password:"wrong_password"}}}, as: :json
     assert_response :unauthorized
-    assert_equal response.parsed_body["error"]
-    # ,t("session.incorrect_credentials")
   end
 
   #test logout function
