@@ -9,13 +9,13 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   #test login with @user
   test "login user with valid credentials" do
-    post login_path, params: {session:{user:{user_name:@user.user_name, password: @user.password}}}, as: :json
+    post login_path, params: {user:{user_name:@user.user_name, password: @user.password}}, as: :json
     assert_response :success
   end
 
   #test invalid credential login
   test "shouldn't login user with invalid credentials" do
-    post login_path, params: {session:{user:{user_name:@user.user_name, password:"wrong_password"}}}, as: :json
+    post login_path, params: {user:{user_name:@user.user_name, password:"wrong_password"}}, as: :json
     assert_response :unauthorized
   end
 

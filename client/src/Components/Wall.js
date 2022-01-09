@@ -61,26 +61,28 @@ function Wall({messages, setMessages}) {
         <div>
             <h1>Home</h1>
             {userId ?
-            <div>
-                <p>{userName}</p>
-                <button onClick={handleDelete}>Delete Account</button>
-                <button onClick={handleLogOut}>Log Out</button>
+            <div id="user-box">
+                <p>Welcome, {userName}!</p>
                 <form onSubmit = {postMessage}>
                     <input 
+                        id="message-input"
                         type="text"
                         placeholder="message"
                         value={messageText}
                         onChange={(e)=>setMessageText(e.target.value)}>
                     </input>
-                    <input type="submit">
+                    <br/>
+                    <input type="submit" className="btn">
                     </input>
                 </form>
+                <button onClick={handleLogOut}>Log Out</button>
+                <button onClick={handleDelete}>Delete Account</button>
             </div>
             : 
             <a href="/log-in-auth">Sign Up/Log In</a>}
             {messages.length>0?
-            <ul>
-            {messages.map(message=>{return <li key={message.id}><p>{message.text}</p><p>({message.user.user_name})</p><button onClick={()=>deletePost(message.id)}>Delete</button></li>})}
+            <ul id="wall">
+            {messages.map(message=>{return <li className="post" key={message.id}><p>{message.text}</p><p className="poster">({message.user.user_name})</p>{message.user.id==userId?<button className="delete-post" onClick={()=>deletePost(message.id)}>Delete</button>:null}</li>})}
             </ul>
             :<p>~No Posts Yet~</p>}
         </div>

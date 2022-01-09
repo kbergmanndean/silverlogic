@@ -8,6 +8,7 @@ function LoginAuth() {
     //shows login or signup page depending on state
     return(
        <div>
+           <a href="/">Home</a>
            {showLogin ? 
                 <div>
                     <Login/>
