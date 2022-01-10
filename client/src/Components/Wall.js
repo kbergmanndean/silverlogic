@@ -87,7 +87,7 @@ function Wall({messages, setMessages}) {
                     {messages.map(message=>{return <li className="post" key={message.id}><p>{message.text}</p><p className="poster">({message.user.user_name})</p>{message.user.id==userId?<button className="delete-post" onClick={()=>deletePost(message.id)}>Delete</button>:null}</li>})}
                 </ul>
             </div>
-            :<p>~No Posts Yet~</p>}
+            :null}
         </div>
     )
 }
