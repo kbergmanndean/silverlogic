@@ -58,7 +58,7 @@ function Wall({messages, setMessages}) {
     }
         
     return(
-        <div>
+        <div id="home">
             <h1>Home</h1>
             {userId ?
             <div id="user-box">
@@ -81,9 +81,11 @@ function Wall({messages, setMessages}) {
             : 
             <a href="/log-in-auth">Sign Up/Log In</a>}
             {messages.length>0?
-            <ul id="wall">
-            {messages.map(message=>{return <li className="post" key={message.id}><p>{message.text}</p><p className="poster">({message.user.user_name})</p>{message.user.id==userId?<button className="delete-post" onClick={()=>deletePost(message.id)}>Delete</button>:null}</li>})}
-            </ul>
+            <div id="wall-container">
+                <ul id="wall">
+                    {messages.map(message=>{return <li className="post" key={message.id}><p>{message.text}</p><p className="poster">({message.user.user_name})</p>{message.user.id==userId?<button className="delete-post" onClick={()=>deletePost(message.id)}>Delete</button>:null}</li>})}
+                </ul>
+            </div>
             :<p>~No Posts Yet~</p>}
         </div>
     )

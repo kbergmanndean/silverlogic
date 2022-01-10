@@ -1,29 +1,24 @@
 body{
-  /* background-color:#ff7900; */
-  background-color:#f8edeb;
-  font-family:"Montserrat Alternates", sans serif;
+  background-color:#f3f3f3;
+  font-family:'Raleway', sans-serif
 }
 .App{
   text-align: center;
   height:100vh;
 }
-h1{
-  font-family:Shizuru;
-}
 .btn, button{
   padding:5pt;
-  /* background-color:#5a189a; */
-  background-color:#fcd5ce;
-  font-family:"Montserrat Alternates";
+  background-color:#029dd8;
   font-size:12pt;
   border:none;
   margin:5pt;
   border-radius:5pt;
-  color:black;
+  color:white;
+  font-family:'Source sans pro', sans serif;
+  font-weight:bold;
 }
 #user-box{
-  /* background-color:#ff9e00; */
-  background-color:#ffb5a7;
+  background-color:#111111;
   float:left;
   height:75vh;
   margin-left:10pt;
@@ -34,6 +29,7 @@ h1{
   font-weight:bold;
   font-size:16pt;
   padding-top:10pt;
+  color:white;
 }
 form{
   margin-bottom:100pt;
@@ -44,20 +40,19 @@ form{
   list-style:none;
 }
 .post{
-  /* border:black solid 1px; */
   padding:10pt;
   border-radius:10px;
   margin:300px;
   margin-top:20px;
   margin-bottom:20px;
-  /* background-color:#240046; */
-  /* background-color:#fc7753; */
-  background-color:#fcd5ce;
-  color:black;
+  background-color:#252525;
+  color:white;
+  font-family:'Source sans pro', sans serif;
+  font-size:14pt;
 }
 .poster{
-  color:black;
-  font-size:10pt;
+  color:#35c6ea;
+  font-size:12pt;
 }
 .delete-post{
   margin-bottom:10pt;
