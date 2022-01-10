@@ -1,5 +1,6 @@
 # README
 Wall Project for SilverLogic
+
 User can view wall of posts by other users, then can sign up or log in to create posts.
 
 This app was made using ruby 2.7.3 and react 17.0.2
