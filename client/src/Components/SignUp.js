@@ -33,7 +33,7 @@ function SignUp() {
     }
 
     return(
-        <div>
+        <div className="login-auth">
             <form onSubmit = {handleSubmit}>
                 <h1>Sign Up</h1>
                 <input
@@ -57,8 +57,8 @@ function SignUp() {
                 name="password"
                 onChange={(e)=>setPassword(e.target.value)}>
             </input>
-            <input type="submit" value="Sign Up"></input>
-            {errors.length > 0 ? errors.map(error => <div>{error}</div>) : null}
+            <input className="btn" type="submit" value="Sign Up"></input>
+            {errors.length > 0 ? errors.map(error => <div key={error}>{error}</div>) : null}
             </form>
         </div>
         

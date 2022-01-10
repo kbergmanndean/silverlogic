@@ -34,7 +34,7 @@ function Login() {
 
 
     return (
-        <div>
+        <div className="login-auth">
             <form onSubmit={handleSubmit}>
                 <h1>Log In</h1>
                 <input
@@ -51,9 +51,9 @@ function Login() {
                     name="password"
                     onChange={(e)=>setPassword(e.target.value)}>
                 </input>
-                <input type="submit" value="Log In"></input>
-            </form>
+                <input className="btn" type="submit" value="Log In"></input>
             {errors? errors.map(error => <div key={error}>{error}</div>) : null}
+            </form>
         </div>
     )
 }

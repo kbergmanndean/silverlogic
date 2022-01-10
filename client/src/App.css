@@ -1,12 +1,22 @@
 body{
+  height:100vh;
   background-color:#f3f3f3;
-  font-family:'Raleway', sans-serif
 }
 .App{
+  height:100%;
+  min-height:100vh;
   text-align: center;
-  height:100vh;
 }
-.btn, button{
+#home{
+  min-height:100%;
+}
+h1{
+  font-family:'Source sans pro', sans serif;
+  text-transform:uppercase;
+  font-weight:bold;
+  color:#029dd8;
+}
+.btn, button, a{
   padding:5pt;
   background-color:#029dd8;
   font-size:12pt;
@@ -16,6 +26,12 @@ body{
   color:white;
   font-family:'Source sans pro', sans serif;
   font-weight:bold;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.btn:hover, button:hover, a:hover{
+  color:#029dd8;
+  background-color:white;
 }
 #user-box{
   background-color:#111111;
@@ -30,6 +46,7 @@ body{
   font-size:16pt;
   padding-top:10pt;
   color:white;
+  font-family:'Raleway', sans-serif;
 }
 form{
   margin-bottom:100pt;
@@ -56,4 +73,17 @@ form{
 }
 .delete-post{
   margin-bottom:10pt;
+}
+.login-auth{
+  background-color:#252525;
+  margin:0;
+  padding:0;
+}
+.login-auth-holder{
+  background-color:#252525;
+  height:100vh;
+  color:white;
+  font-family:'Source sans pro', sans serif;
+  font-size:16pt;
+  font-weight:bold;
 }
