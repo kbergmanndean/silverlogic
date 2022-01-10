@@ -51,8 +51,13 @@ h1{
 form{
   margin-bottom:100pt;
 }
-/* #message-input{
-} */
+#message-input{
+  padding:10px;
+  border-radius:5pt;
+  font-family:'Raleway', sans serif;
+  height:50pt;
+  margin-bottom:10pt;
+}
 #wall{
   list-style:none;
 }
@@ -86,4 +91,11 @@ form{
   font-family:'Source sans pro', sans serif;
   font-size:16pt;
   font-weight:bold;
+}
+input[type=text]{
+  margin:10pt;
+  padding:5pt;
+  border-radius:5pt;
+  border:none;
+  font-family:'Raleway', sans serif
 }

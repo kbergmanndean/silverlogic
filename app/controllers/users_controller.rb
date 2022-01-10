@@ -11,11 +11,11 @@ class UsersController < ApplicationController
         render json: user_show
     end
     
+    #create new user, if valid then sends email, if not then error message
     def create 
         user=User.create(user_params)
         session[:user_id]=user.id
         if user.valid?
-            #sends email when new user created
             WelcomeMailer.welcome_email(user).deliver_now
             render json:user, status: :created
         else

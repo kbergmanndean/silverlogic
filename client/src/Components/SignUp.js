@@ -2,6 +2,7 @@ import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 function SignUp() {
+    //state for sign up form information
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
@@ -43,6 +44,7 @@ function SignUp() {
                 name="username"
                 onChange={(e)=>setUsername(e.target.value)}>
             </input>
+            <br/>
             <input
                 type="text"
                 placeholder="email"
@@ -50,6 +52,7 @@ function SignUp() {
                 name="email"
                 onChange={(e)=>setEmail(e.target.value)}>
             </input>
+            <br/>
             <input
                 type="text"
                 placeholder="password"
@@ -57,6 +60,7 @@ function SignUp() {
                 name="password"
                 onChange={(e)=>setPassword(e.target.value)}>
             </input>
+            <br/>
             <input className="btn" type="submit" value="Sign Up"></input>
             {errors.length > 0 ? errors.map(error => <div key={error}>{error}</div>) : null}
             </form>

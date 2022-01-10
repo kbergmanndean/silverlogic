@@ -1,11 +1,12 @@
 import {useState} from "react"
 
 function Wall({messages, setMessages}) {
+    //create state for post text to use in form, and for user information stored in localStorage
     const [messageText, setMessageText] = useState("")
     const [userId, setUserId] = useState(localStorage.getItem("user_id"))
     const [userName, setUserName] = useState(localStorage.getItem("username"))
 
-    //function to post message to wall
+    //send post request with message text and user id to backend, add returned data to messages array in state
     async function postMessage(e) {
         e.preventDefault();
         const post = {
@@ -64,13 +65,13 @@ function Wall({messages, setMessages}) {
             <div id="user-box">
                 <p>Welcome, {userName}!</p>
                 <form onSubmit = {postMessage}>
-                    <input 
+                    <textarea 
                         id="message-input"
                         type="text"
                         placeholder="message"
                         value={messageText}
                         onChange={(e)=>setMessageText(e.target.value)}>
-                    </input>
+                    </textarea>
                     <br/>
                     <input type="submit" className="btn">
                     </input>

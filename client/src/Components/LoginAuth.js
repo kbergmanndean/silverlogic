@@ -9,11 +9,12 @@ function LoginAuth() {
     return(
        <div className="login-auth-holder">
            <br/>
+           <br/>
+           <br/>
            <a href="/">Home</a>
            {showLogin ? 
                 <div>
                     <Login/>
-                    <br/>
                     <p>Don't have an account? &nbsp;
                         <button onClick={() => setShowLogin(false)}>Sign Up</button>
                     </p>
@@ -21,7 +22,6 @@ function LoginAuth() {
            :
                 <div>
                     <SignUp/>
-                    <br/>
                     <p>Already have an account? &nbsp;
                         <button onClick={() => setShowLogin(true)}>Log In</button>
                     </p>

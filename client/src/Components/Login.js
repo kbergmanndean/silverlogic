@@ -1,14 +1,15 @@
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 function Login() {
+    //state for login form information
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
 
     const navigate=useNavigate();
 
-    //logs in new user by posting to /login
+    //logs in new user by posting user information to /login, creating session
     async function handleSubmit(e) {
         e.preventDefault()
         const user = {
@@ -22,6 +23,7 @@ function Login() {
         })
         const userData = await res.json();
         if (userData.id) {
+            //add user information to local storage
             localStorage.setItem("user_id", userData.id)
             localStorage.setItem("username", userData.user_name)
             navigate("/")
@@ -44,6 +46,7 @@ function Login() {
                     name="username"
                     onChange={(e)=>setUserName(e.target.value)}>
                 </input>
+                <br/>
                 <input
                     type="text"
                     placeholder="password"
@@ -51,6 +54,7 @@ function Login() {
                     name="password"
                     onChange={(e)=>setPassword(e.target.value)}>
                 </input>
+                <br/>
                 <input className="btn" type="submit" value="Log In"></input>
             {errors? errors.map(error => <div key={error}>{error}</div>) : null}
             </form>

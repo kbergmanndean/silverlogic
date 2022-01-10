@@ -16,7 +16,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   #test create function on users controller
   test "should create user" do 
-    post users_url, params: {user:{user_name:"user1", password_digest:"123", email:"abc@gmail.com"}}, as: :json
+    post users_url, params: {user:{user_name:"user99", password:"123", email:"abc@gmail.com"}}, as: :json
     assert_response :success
   end
 

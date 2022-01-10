@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     skip_before_action :authorize
 
-    #logs in user, creating session
+    #logs in user if username and password are valid
     def create
         user=User.find_by(user_name:params[:user][:user_name])
         if user && user.authenticate(params[:user][:password])
