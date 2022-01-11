@@ -1,13 +1,13 @@
 # README
 ## Wall Project for SilverLogic
 
-##General Info
+## General Info
 User can view wall of posts by other users, then can sign up or log in to create posts.
 
-##Technologies
+## Technologies
 This app was made using ruby 2.7.3 and react 17.0.2
 
-##Setup
+## Setup
 To run backend for this project:
 ```
 $ rails s 
@@ -19,7 +19,7 @@ $ npm install
 $ npm start.
 ```
 To run tests:
-````
+```
 $ bin/rails test
 ```
 
