@@ -28,5 +28,13 @@ To run tests:
 ```
 $ bin/rails test
 ```
+To create database:
+```
+$ rails db:create
+```
+To seed first user and wall post:
+```
+$ rails db:migrate db:seed
+```
 
 Kaia Bergmann-Dean
