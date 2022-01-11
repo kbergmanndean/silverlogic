@@ -22,4 +22,5 @@ To run tests:
 ````
 $ bin/rails test
 ```
+
 Kaia Bergmann-Dean
