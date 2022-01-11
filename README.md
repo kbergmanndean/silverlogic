@@ -24,10 +24,6 @@ $ cd ./client
 $ npm install
 $ npm start.
 ```
-To run tests:
-```
-$ bin/rails test
-```
 To create database:
 ```
 $ rails db:create
@@ -35,6 +31,10 @@ $ rails db:create
 To seed first user and wall post:
 ```
 $ rails db:migrate db:seed
+```
+To run tests:
+```
+$ bin/rails test
 ```
 
 Kaia Bergmann-Dean
